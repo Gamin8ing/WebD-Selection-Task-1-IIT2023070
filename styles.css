@@ -63,7 +63,7 @@
 	display: grid;
 	grid-template-rows: 0fr;
 	align-content: center;
-	transition: all 0.5s;
+	transition: grid-template-rows 0.5s;
 	transform-origin: top;
 	overflow: hidden;
 	/* padding: 20px 40px; */
@@ -83,14 +83,20 @@
 	font-weight: 400;
 	letter-spacing: normal;
 }
+.subitem {
+	font-size: 2.5rem;
+	color: rgb(88, 88, 88);
+}
 .show-more {
 	position: relative;
-	width: 40px;
+	width: 40px !important;
+	height: 40px;
 	font-size: 3rem;
 	aspect-ratio: 1/1;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-shrink: 0;
 }
 .standing {
 	position: absolute;
@@ -170,9 +176,9 @@
 /* imported */
 .checklist {
 	/* --background: #fff; */
-	--text: #5a5a5a;
+	--text: #484848;
 	--check: #000;
-	--disabled: #b7b7b7;
+	--disabled: #818181;
 	--width: 100px;
 	--height: 140px;
 	--border-radius: 10px;
@@ -349,5 +355,47 @@
 		box-shadow: 0 -20px 0 0px var(--text), 20px -14px 0 0px var(--text),
 			20px 14px 0 0px var(--text), 0 15px 0 0px var(--text),
 			-20px 14px 0 0px var(--text), -20px -14px 0 0px var(--text);
+	}
+}
+@media only screen and (max-width: 600px) {
+	.container {
+		padding: 0;
+		padding: 0;
+	}
+	.items {
+		font-size: 2rem;
+	}
+	.subitem {
+		font-size: 1.5rem;
+	}
+	.show-more {
+		font-size: 1.5rem;
+	}
+	.checklist label {
+		font-size: 1.5rem;
+	}
+	.main {
+		width: 100%;
+	}
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+	.container {
+		padding: 0;
+	}
+	.main {
+		width: 100%;
+	}
+	.items {
+		font-size: 3.5rem;
+	}
+	.subitem {
+		font-size: 2.2rem;
+	}
+	.show-more {
+		font-size: 3rem;
+	}
+	.checklist label {
+		font-size: 2rem;
 	}
 }
