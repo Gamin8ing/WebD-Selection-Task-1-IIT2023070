@@ -1,0 +1,353 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+	font-family: "Playfair Display", serif;
+	/* transition: all 0.3s; */
+}
+
+.container {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	background-color: #c6f0c7;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 40px;
+}
+.hero-head {
+	display: inline;
+	font-size: 4rem;
+	margin: 20px;
+}
+
+.main {
+	width: 80%;
+	height: fit-content;
+}
+.items-cont {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: column;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.thisanim {
+	animation: ani 1s ease-out forwards;
+}
+
+@keyframes ani {
+	0% {
+		max-height: fit-content;
+	}
+	100% {
+		max-height: 100px;
+	}
+}
+
+.category {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 15px 30px;
+}
+.questions {
+	width: 100%;
+	font-size: 1.5rem;
+	display: grid;
+	grid-template-rows: 0fr;
+	align-content: center;
+	transition: all 0.5s;
+	transform-origin: top;
+	overflow: hidden;
+	/* padding: 20px 40px; */
+}
+/* .qlist {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.qitem {
+  color: #353535;
+} */
+
+.items {
+	font-size: 4rem;
+	font-weight: 400;
+	letter-spacing: normal;
+}
+.show-more {
+	position: relative;
+	width: 40px;
+	font-size: 3rem;
+	aspect-ratio: 1/1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.standing {
+	position: absolute;
+	height: 100%;
+	width: 2px;
+	background-color: black;
+	transition: all 0.3s;
+	/* rotate: 90deg; */
+}
+.sleeping {
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background-color: black;
+	transition: all 0.3s;
+}
+.anim {
+	animation: rot 500ms ease-out forwards;
+}
+.anim-reverse {
+	animation: rotrev 500ms ease-in forwards;
+}
+.disable {
+	animation: dissappear 1s ease-out forwards;
+}
+
+.enable {
+	animation: dissappear 1s ease-out reverse;
+}
+
+@keyframes rot {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(90deg);
+	}
+}
+@keyframes rotrev {
+	100% {
+		transform: rotate(0);
+	}
+	0% {
+		transform: rotate(90deg);
+	}
+}
+
+@keyframes dissappear {
+	0% {
+		display: block;
+	}
+
+	100% {
+		display: none;
+	}
+}
+
+.items-cont:nth-child(4n + 1) {
+	background-color: #e1e1e1;
+}
+.items-cont:nth-child(4n + 2) {
+	background-color: #93d69e;
+}
+.items-cont:nth-child(4n + 3) {
+	background-color: #000000;
+	color: white;
+}
+.items-cont:nth-child(4n + 3) .standing,
+.items-cont:nth-child(4n + 3) .sleeping {
+	background-color: white;
+}
+.items-cont:nth-child(4n) {
+	background-color: #00a6ff;
+	color: black;
+}
+
+/* imported */
+.checklist {
+	/* --background: #fff; */
+	--text: #5a5a5a;
+	--check: #000;
+	--disabled: #b7b7b7;
+	--width: 100px;
+	--height: 140px;
+	--border-radius: 10px;
+	/* width: var(--width);
+  height: var(--height);
+  border-radius: var(--border-radius); */
+	background-color: none;
+	position: relative;
+	/* padding: 15px 30px; */
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	flex-direction: column;
+	overflow: hidden;
+}
+.ques {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	overflow: hidden;
+}
+.checklist label {
+	color: var(--text);
+	position: relative;
+	cursor: pointer;
+	transition: color 0.3s ease;
+	font-size: 2.4rem;
+	display: flex;
+	align-items: center;
+}
+.checklist label::before,
+.checklist label::after {
+	content: "";
+	position: absolute;
+}
+
+.checklist label::before {
+	height: 4px;
+	width: 16px;
+	left: -30px;
+	/* margin-top: 8px; */
+	background: var(--text);
+	border-radius: 2px;
+	transition: background 0.3s ease;
+}
+.checklist label::after {
+	height: 5px;
+	width: 5px;
+	left: -25px;
+	border-radius: 50%;
+}
+
+.checklist input[type="checkbox"] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	position: relative;
+	height: 30px;
+	width: 30px;
+	outline: none;
+	border: 0;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.checklist input[type="checkbox"]::before,
+.checklist input[type="checkbox"]::after {
+	content: "";
+	position: absolute;
+	height: 4px;
+	background: var(--text);
+	border-radius: 4px;
+}
+.checklist input[type="checkbox"]::before {
+	width: 0px;
+	right: 60%;
+	transform-origin: right bottom;
+	margin-top: 10px;
+}
+.checklist input[type="checkbox"]::after {
+	width: 0px;
+	left: 45%;
+	transform-origin: left bottom;
+	margin-top: 10px;
+}
+
+.checklist input[type="checkbox"]:checked::before {
+	animation: check-01 0.4s ease forwards;
+}
+.checklist input[type="checkbox"]:checked::after {
+	animation: check-02 0.4s ease forwards;
+}
+.checklist input[type="checkbox"]:checked + label {
+	color: var(--disabled);
+	animation: move 0.3s ease 0.1s forwards;
+}
+.checklist input[type="checkbox"]:checked + label::before {
+	animation: slice 0.4s ease forwards;
+}
+.checklist input[type="checkbox"]:checked + label::after {
+	animation: firework 0.5s ease forwards 0.1s;
+}
+
+@keyframes move {
+	50% {
+		padding-left: 8px;
+		padding-right: 0px;
+	}
+	100% {
+		padding-right: 4px;
+	}
+}
+@keyframes slice {
+	60% {
+		width: 100%;
+		left: 4px;
+	}
+	100% {
+		width: 100%;
+		left: -2px;
+		padding-left: 0;
+	}
+}
+@keyframes check-01 {
+	0% {
+		width: 4px;
+		transform: rotate(0);
+	}
+	50% {
+		width: 0px;
+		transform: rotate(0);
+	}
+	51% {
+		width: 0px;
+		transform: rotate(45deg);
+	}
+	100% {
+		width: 8px;
+		transform: rotate(45deg);
+	}
+}
+@keyframes check-02 {
+	0% {
+		width: 4px;
+		transform: rotate(0);
+	}
+	50% {
+		width: 0px;
+		transform: rotate(0);
+	}
+	51% {
+		width: 0px;
+		transform: rotate(-45deg);
+	}
+	100% {
+		width: 15px;
+		transform: rotate(-45deg);
+	}
+}
+@keyframes firework {
+	0% {
+		opacity: 1;
+		box-shadow: 0 0 0 -2px var(--text), 0 0 0 -2px var(--text),
+			0 0 0 -2px var(--text), 0 0 0 -2px var(--text), 0 0 0 -2px var(--text),
+			0 0 0 -2px var(--text);
+	}
+	20% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		box-shadow: 0 -20px 0 0px var(--text), 20px -14px 0 0px var(--text),
+			20px 14px 0 0px var(--text), 0 15px 0 0px var(--text),
+			-20px 14px 0 0px var(--text), -20px -14px 0 0px var(--text);
+	}
+}
