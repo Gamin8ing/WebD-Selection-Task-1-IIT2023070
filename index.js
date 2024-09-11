@@ -13,7 +13,8 @@ async function getData() {
 
 		return json;
 	} catch (error) {
-		console.error(error.message);
+		alert("I am web dev pro, reload may solve this error lol");
+		console.error("I'm a web dev pro");
 	}
 }
 // creating list from the data
